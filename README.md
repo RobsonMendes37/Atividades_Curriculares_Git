@@ -1,2 +1,2 @@
 # Atividades_Curriculares
-Todas as minhas questões nas linguagens desenvolvidas na faculdades
+Todas as minhas atividades de código desenvolvidos para/com faculdades
