@@ -1,52 +1,57 @@
 import java.util.Random;
-public class JogoDaVelha {
 
-	private int jogadorVencedor=-000;
+public class JogoDaVelha {//faz o jogo funcionar
+
+	private int jogadorVencedor;
 	//  humano é 1
 	//	maquina é 2
-	private boolean fimDeJogo;
+	private boolean fimDeJogo;//inicia com falso
 	private int jogadorDaVez;// erifica se é a vez do jogador jogar
 	private int[][] tabuleiro; // é a matriz do jogo, no caso o jogo da velha é um 3 por 3, eu penso em atribuir 1 para o jogador e 0 para a maquina,assim eu 
 								// vou ter algumas verificações para quando o jogador for vencer a partir de um numero minimo de jogadas do inidividuo que no caso é 3
 								//assim eu deveo iniciar o tabuleiro com algum valor. tipo null
 	
+
+
+
 	public JogoDaVelha(){ //Faço o tabuleiro com o construtor da classe
 		fimDeJogo=false;
 		jogadorDaVez=1;
+		jogadorVencedor=0;
 		tabuleiro = new int[3][3];
-		for(int i;i<3;i++){
-			for(int j;j<3;j++){
-				tabuleiro[i][j]=-000;//forma de criar umm string vazia
+		
+		for(int i =0; i<3; i++){
+			for(int j=0;j<3; j++){
+				tabuleiro[i][j]=0;//forma de criar umm string vazia
 			}
 		}
 	}
 	
-	public boolean iniciarJogo() {//so tem que falar par iniciar o jogo
-		return true;
-	}
-
+	
 	public void fazJogada(int linha, int coluna) {
 		// aqui o usuário de deve jogar, assim deve ter uma entrada da jogada do usuário, colocando a linha e coluna que ele quer jogar, 
 		// assim deve colocar o valor no tabuleiro
 		jogadorDaVez=1;
-		if(tabuleiro[linha][coluna]==-000){//verifica se for vazil,se for é true
+		if(tabuleiro[linha][coluna]==0){//verifica se for vazil,se for é true
 			tabuleiro[linha][coluna]= jogadorDaVez;
 			jogadorDaVez=2;
 
 		}
-
-
 	}
 
+	public int[][] mostrarTabuleiro(){
+		return tabuleiro;
+	}
 
 	Random random = new Random();
-	private void realizarVezDaMaquina() {
+
+	public void realizarVezDaMaquina() {
 			//aqui a maquina faz a jogada, ela pode fazer de forma aleátoria, ou eu posso colocar diretrizes que melhoram as jogadas dela
 		
 		int linha = random.nextInt(3); //vai fazer um aleatorio de 0 á  2
 		int coluna =random.nextInt(3); 
 		
-		if(tabuleiro[linha][coluna]==-000){//verifica se for vazil,se for é true
+		if(tabuleiro[linha][coluna]==0){//verifica se for vazil,se for é true
 			tabuleiro[linha][coluna]= jogadorDaVez;
 			jogadorDaVez=1;
 		}
@@ -108,26 +113,19 @@ public class JogoDaVelha {
 		fimDeJogo=true;
 	}
 
-	public int verificarVencendor(){
-		if(jogadorVencedor==-000){
+	public int amostrarVencendor(){
+		if(jogadorVencedor==0){
 			return -1;
 		}else return jogadorVencedor;
 	}
 
-	public boolean verificarFimDeJogo() {//é tipo o get eu acho
-		// aqui verefica se o usuário quer terminar o jogo, no caso verifica uma variavel
-		if(jogadorVencedor!=-000){
+	public boolean verificarFimDeJogo() {
+		if(jogadorVencedor!=0){
 			return true;
-		}
-		else return false;
+		}   else    return false;
 	}
 
-	private void atualizaFimDeJogo() {//atualiza o fim de jogo, ja que ele é privado, é tipo o set
-		fimDeJogo=false;
-	}
-
-	private void atualizaTabuleiro() {
-		//aqui limpa o tabuleiro ja que o jogador quer um novo jogo
+	public void apagarTabuleiro(){
 		tabuleiro = null;
 	}
 

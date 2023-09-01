@@ -1,8 +1,8 @@
 public class Main {
-    public static void main(String[] args){
-        //aqui se inicia o codigo, logo devo fazer alguma referencia oa inicio do jogo
+   public static void main(String[] args){ 
+        Tela tela1;
+        tela1= new Tela();
 
-
-
+        tela1.jogar();
     }
 }

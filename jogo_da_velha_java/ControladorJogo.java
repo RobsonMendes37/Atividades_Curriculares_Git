@@ -1,15 +1,11 @@
-public class ControladorJogo {
+public class ControladorJogo {//controla o fluxo 
 
 	//crio uma variavel JogoDaVelha1 da classe JogoDaVelha
 	private JogoDaVelha JogoDaVelha1;
 
-	public boolean iniciarJogo() {
-		//aqui eu devo receber algo do usuário e com isso mudar alguma variavel ou iniciar um metodo ou coisa do tipo,
-		//penso em chamar os metodos de criar tabuleiro,
-
+	public void iniciarJogo() {
 		JogoDaVelha1 = new JogoDaVelha(); //aqui eu crio um objeto chamando o construtor
 										  //em seguida eu quardo ele na variavel JogoDaVelha1
-		return true;
 	}
 
 	public void fazJogada(int linha, int coluna) {
@@ -18,9 +14,13 @@ public class ControladorJogo {
 		JogoDaVelha1.fazJogada(linha,coluna);
 	}
 
+	public int[][] mostrarTabuleiro(){
+		return JogoDaVelha1.mostrarTabuleiro();
+	} 
+
 	public int verificarVencedor() {
 		JogoDaVelha1.atualizarVencedor();
-		return JogoDaVelha1.verificarVencendor();
+		return JogoDaVelha1.amostrarVencendor();
 	}
 
 	public boolean verificarFimDeJogo() {
@@ -28,4 +28,11 @@ public class ControladorJogo {
 		return JogoDaVelha1.verificarFimDeJogo();
 	}
 
+	public void apagarTabuleiro(){
+		JogoDaVelha1.apagarTabuleiro();
+	}
+	
+	public void realizarVezDaMaquina(){
+		JogoDaVelha1.realizarVezDaMaquina();
+	}
 }
